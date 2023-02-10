@@ -23,7 +23,7 @@ export const CarDetails = ({car, onCloseClick}) => {
                                 alt=""
                                 className="image"/>
                         </div>
-                        <div className="user-details">
+                        <div className="car-details">
                             <p>Car Id: <strong>{car.id}</strong></p>
                             <p>
                                 Brand:

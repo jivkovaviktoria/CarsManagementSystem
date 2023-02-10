@@ -168,7 +168,7 @@ ul {
     box-shadow: 1px 2px 5px #ccc;
 }
 
-.users-container {
+.cars-container {
     width: 100%;
 }
 
@@ -556,7 +556,7 @@ ul {
     background-color: #5cb85c;
 }
 
-/* Add user button  */
+/* Add Car button  */
 .btn-add {
     padding: 5px 20px;
     height: auto;
@@ -653,7 +653,7 @@ ul {
     margin: auto;
 }
 
-/* User details styles  */
+/* Car details styles  */
 .detail-container {
     width: 100%;
     height: 40vh;
@@ -691,17 +691,17 @@ ul {
     flex: 4;
 }
 
-.user-details {
+.car-details {
     flex: 8;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin-left: 0px !important;
 }
-.user-details p {
+.car-details p {
     margin-bottom: 10px;
 }
-.user-details p:last-of-type {
+.car-details p:last-of-type {
     margin-bottom: 0px;
 }
 
@@ -745,7 +745,7 @@ ul {
         width: 120px;
         height: 120px;
     }
-    .user-details {
+    .car-details {
         flex-direction: column;
         align-items: center;
         margin-bottom: 20px;
@@ -760,7 +760,7 @@ ul {
         width: 100%;
         height: auto;
     }
-    .user-details {
+    .car-details {
         align-items: stretch;
     }
 }
@@ -769,7 +769,7 @@ ul {
     .detail-container {
         min-width: 63vw;
     }
-    .user-details > p {
+    .car-details > p {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -777,7 +777,7 @@ ul {
 }
 
 /* Add/Edit form styles  */
-.user-container {
+.car-container {
     width: 100%;
     height: 100%;
 }

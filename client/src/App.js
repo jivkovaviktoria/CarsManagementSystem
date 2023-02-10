@@ -18,7 +18,7 @@ function App() {
     <div className="App">
         <Header/>
         <main className="main">
-            <section className="card users-container">
+            <section className="card cars-container">
                 <Search/>
                 <CarsSection cars={cars} />
             </section>
