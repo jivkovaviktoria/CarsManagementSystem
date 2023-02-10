@@ -1,8 +1,27 @@
 import {CarItem} from "./carItem/CarItem";
+import {useState} from "react";
+import * as CarService from '../../services/CarService'
+import {CarDetails} from "./carDetails/CarDetails";
 
 export const CarsSection = (props) => {
+
+    const[selectedCar, setSelectedCar] = useState(null);
+
+
+
+    const infoClickHandler = (id) => {
+        CarService.getSingle(id).then(car => setSelectedCar(car));
+    }
+
+    const detailsCloseClickHandler = () => {
+        setSelectedCar(null);
+    }
+
     return(
         <div className="table-wrapper">
+
+            {selectedCar && <CarDetails car={selectedCar} onCloseClick={detailsCloseClickHandler}/>}
+
             <table className="table">
                 <thead>
                 <tr>
@@ -60,7 +79,8 @@ export const CarsSection = (props) => {
                 </thead>
 
                 <tbody>
-                {props.cars?.map(car => <CarItem key={car.id} {...car}/>)}
+                {props.cars?.map(car =>
+                    <CarItem key={car.id} car={car} onInfoClick={infoClickHandler}/>)}
                 </tbody>
             </table>
         </div>

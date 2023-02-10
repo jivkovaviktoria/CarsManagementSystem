@@ -1,14 +1,14 @@
-export const CarItem = (car) => {
+export const CarItem = (props) => {
     return (
         <tr>
             <td>
-                <img src={car.imageUrl} alt={`${car.brand} image`} className="image" />
+                <img src={props.car.imageUrl} alt={`${props.car.brand} image`} className="image" />
             </td>
-            <td>{car.brand}</td>
-            <td>{car.model}</td>
-            <td>{car.color}</td>
-            <td>{car.year}</td>
-            <td>{car.created}</td>
+            <td>{props.car.brand}</td>
+            <td>{props.car.model}</td>
+            <td>{props.car.color}</td>
+            <td>{props.car.year}</td>
+            <td>{props.car.created}</td>
 
             <td className="actions">
                 <button className="btn edit-btn" title="Edit" >
@@ -28,7 +28,7 @@ export const CarItem = (car) => {
                         </path>
                     </svg>
                 </button>
-                <button className="btn info-btn" title="Info" >
+                <button className="btn info-btn" title="Info" onClick={() => props.onInfoClick(props.car.id)} >
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info"
                          className="svg-inline--fa fa-info" role="img" xmlns="http://www.w3.org/2000/svg"
                          viewBox="-150 0 512 612">

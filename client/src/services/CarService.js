@@ -6,3 +6,10 @@ export const getAll = async () => {
 
     return result;
 };
+
+export const getSingle = async (carId) => {
+    const response = await fetch(`${baseUrl}/${carId}`);
+    const result = await response.json();
+
+    return result;
+};
