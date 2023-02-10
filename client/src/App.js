@@ -1,6 +1,6 @@
 import './styles.css';
 import {useEffect, useState} from "react";
-import * as carService from './services/CarService';
+import * as CarService from './services/CarService';
 
 import {Header} from "./components/common/Header";
 import {Footer} from "./components/common/Footer";
@@ -11,11 +11,8 @@ function App() {
     const [cars, setCars] = useState([]);
 
     useEffect(() => {
-        carService.getAll()
-            .then(cars => setCars(cars));
+        CarService.getAll().then(result => setCars(result));
     }, []);
-
-    console.log(cars);
 
   return (
     <div className="App">

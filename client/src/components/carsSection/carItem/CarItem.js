@@ -1,14 +1,14 @@
-export const CarItem = (props) => {
+export const CarItem = (car) => {
     return (
         <tr>
             <td>
-                <img src={props.imageUrl} alt={`${props.brand} image`} className="image" />
+                <img src={car.imageUrl} alt={`${car.brand} image`} className="image" />
             </td>
-            <td>{props.brand}</td>
-            <td>{props.model}</td>
-            <td>{props.color}</td>
-            <td>{props.year}</td>
-            <td>{props.created}</td>
+            <td>{car.brand}</td>
+            <td>{car.model}</td>
+            <td>{car.color}</td>
+            <td>{car.year}</td>
+            <td>{car.created}</td>
 
             <td className="actions">
                 <button className="btn edit-btn" title="Edit" >

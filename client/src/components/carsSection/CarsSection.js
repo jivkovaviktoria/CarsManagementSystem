@@ -60,7 +60,7 @@ export const CarsSection = (props) => {
                 </thead>
 
                 <tbody>
-                    {props.cars.map(car => <CarItem key={car.id} {...car}/>)}
+                {props.cars?.map(car => <CarItem key={car.id} {...car}/>)}
                 </tbody>
             </table>
         </div>
