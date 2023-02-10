@@ -55,7 +55,7 @@ namespace CarsManagementSystem.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cars");
+                    b.ToTable("Cars", (string)null);
                 });
 #pragma warning restore 612, 618
         }

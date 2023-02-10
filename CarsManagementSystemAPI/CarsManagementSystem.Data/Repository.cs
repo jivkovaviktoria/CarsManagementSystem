@@ -54,7 +54,10 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : class, I
 
         this._dbContext.Entry(targetEntity).State = EntityState.Detached;
         this._dbContext.Entry(entity).State = EntityState.Modified;
+        entity.LastModified = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+        
         this._dbContext.Update(entity);
+        
         await this._dbContext.SaveChangesAsync();
         return true;
     }
