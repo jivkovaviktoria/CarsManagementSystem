@@ -1,5 +1,7 @@
 export const carActions = {
     Info: 'info',
     Edit: 'edit',
-    Delete: 'delete'
+    Delete: 'delete',
+    Add: 'add'
 };
+

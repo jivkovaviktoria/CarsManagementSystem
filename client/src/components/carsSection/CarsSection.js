@@ -5,43 +5,59 @@ import {CarDetails} from "./carDetails/CarDetails";
 import {CarEdit} from "./carEdit/CarEdit";
 import {carActions} from './carSectionsConstants';
 import {CarDelete} from "./carDelete/CarDelete";
+import {CarCreate} from "./carCreate/CarCreate";
 
 export const CarsSection = (props) => {
 
     const[carAction, setCarAction] = useState({car: null, action: null});
 
     const carActionClickHandler = (id, actionType) => {
-        CarService.getSingle(id)
+        if(id === null) setCarAction({car:null, action:actionType});
+        else{
+            CarService.getSingle(id)
             .then(car => setCarAction({car: car, action: actionType}));
-    }
+        }
+    };
+
+    const createClickHandler = () => {
+        setCarAction({car:null, action:carActions.Add});
+    };
 
     const CloseClickHandler = () => {
         setCarAction({car: null, action: null});
     }
 
     return(
-        <div className="table-wrapper">
-
-            {carAction.action == carActions.Info &&
+        <>
+            {carAction.action === carActions.Info &&
                 <CarDetails
                     car={carAction.car}
                     onCloseClick={CloseClickHandler}
                 />
             }
 
-            {carAction.action == carActions.Edit &&
-            <CarEdit
-                car={carAction.car}
-                onCloseClick={CloseClickHandler}
-            />}
+            {carAction.action === carActions.Edit &&
+                <CarEdit
+                    car={carAction.car}
+                    onCloseClick={CloseClickHandler}
+                />
+            }
 
-            {carAction.action == carActions.Delete &&
+            {carAction.action === carActions.Delete &&
                 <CarDelete
                     car={carAction.car}
                     oncloseClick={CloseClickHandler}
                 />
             }
 
+            {carAction.action === carActions.Add &&
+                <CarCreate
+                    car={carAction.car}
+                    onCloseClick={CloseClickHandler}
+                />
+            }
+
+        <div className="table-wrapper">
             <table className="table">
                 <thead>
                 <tr>
@@ -109,5 +125,8 @@ export const CarsSection = (props) => {
                 </tbody>
             </table>
         </div>
+
+        <button className="btn-add btn" onClick={() => carActionClickHandler(null, carActions.Add)}>Add new user</button>
+    </>
     );
 }
