@@ -2,25 +2,45 @@ import {CarItem} from "./carItem/CarItem";
 import {useState} from "react";
 import * as CarService from '../../services/CarService'
 import {CarDetails} from "./carDetails/CarDetails";
+import {CarEdit} from "./carEdit/CarEdit";
+import {carActions} from './carSectionsConstants';
+import {CarDelete} from "./carDelete/CarDelete";
 
 export const CarsSection = (props) => {
 
-    const[selectedCar, setSelectedCar] = useState(null);
+    const[carAction, setCarAction] = useState({car: null, action: null});
 
-
-
-    const infoClickHandler = (id) => {
-        CarService.getSingle(id).then(car => setSelectedCar(car));
+    const carActionClickHandler = (id, actionType) => {
+        CarService.getSingle(id)
+            .then(car => setCarAction({car: car, action: actionType}));
     }
 
-    const detailsCloseClickHandler = () => {
-        setSelectedCar(null);
+    const CloseClickHandler = () => {
+        setCarAction({car: null, action: null});
     }
 
     return(
         <div className="table-wrapper">
 
-            {selectedCar && <CarDetails car={selectedCar} onCloseClick={detailsCloseClickHandler}/>}
+            {carAction.action == carActions.Info &&
+                <CarDetails
+                    car={carAction.car}
+                    onCloseClick={CloseClickHandler}
+                />
+            }
+
+            {carAction.action == carActions.Edit &&
+            <CarEdit
+                car={carAction.car}
+                onCloseClick={CloseClickHandler}
+            />}
+
+            {carAction.action == carActions.Delete &&
+                <CarDelete
+                    car={carAction.car}
+                    oncloseClick={CloseClickHandler}
+                />
+            }
 
             <table className="table">
                 <thead>
@@ -80,7 +100,12 @@ export const CarsSection = (props) => {
 
                 <tbody>
                 {props.cars?.map(car =>
-                    <CarItem key={car.id} car={car} onInfoClick={infoClickHandler}/>)}
+                    <CarItem
+                        key={car.id}
+                        car={car}
+                        onClick={carActionClickHandler}
+                    />
+                )}
                 </tbody>
             </table>
         </div>
