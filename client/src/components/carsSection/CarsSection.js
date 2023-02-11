@@ -1,5 +1,5 @@
 import {CarItem} from "./carItem/CarItem";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import * as CarService from '../../services/CarService'
 import {CarDetails} from "./carDetails/CarDetails";
 import {CarEdit} from "./carEdit/CarEdit";
@@ -9,7 +9,13 @@ import {CarCreate} from "./carCreate/CarCreate";
 
 export const CarsSection = (props) => {
 
+    const[cars, setCars] = useState([]);
     const[carAction, setCarAction] = useState({car: null, action: null});
+
+    useEffect(() => {
+        CarService.getAll().then(result => setCars(result));
+    }, []);
+
 
     const carActionClickHandler = (id, actionType) => {
         if(id === null) setCarAction({car:null, action:actionType});
@@ -19,12 +25,21 @@ export const CarsSection = (props) => {
         }
     };
 
-    const createClickHandler = () => {
-        setCarAction({car:null, action:carActions.Add});
-    };
-
     const CloseClickHandler = () => {
         setCarAction({car: null, action: null});
+    }
+
+    const carCreateHandler = (e) => {
+        e.preventDefault();
+
+        const data = new FormData(e.target);
+        const newCar = Object.fromEntries(data);
+
+        CarService.create(newCar)
+            .then(() => {
+                CloseClickHandler();
+                setCars(state => [...state, newCar])
+            })
     }
 
     return(
@@ -52,8 +67,8 @@ export const CarsSection = (props) => {
 
             {carAction.action === carActions.Add &&
                 <CarCreate
-                    car={carAction.car}
                     onCloseClick={CloseClickHandler}
+                    onCarCreate = {carCreateHandler}
                 />
             }
 
@@ -115,7 +130,7 @@ export const CarsSection = (props) => {
                 </thead>
 
                 <tbody>
-                {props.cars?.map(car =>
+                {cars?.map(car =>
                     <CarItem
                         key={car.id}
                         car={car}
