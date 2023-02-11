@@ -9,6 +9,7 @@ import {CarCreate} from "./carCreate/CarCreate";
 
 export const CarsSection = (props) => {
 
+
     const[cars, setCars] = useState([]);
     const[carAction, setCarAction] = useState({car: null, action: null});
 
@@ -38,8 +39,15 @@ export const CarsSection = (props) => {
         CarService.create(newCar)
             .then(() => {
                 CloseClickHandler();
-                setCars(state => [...state, newCar])
-            })
+                setCars(state => [...state, newCar]);
+            });
+    }
+
+    const carDeleteHandler = () => {
+        CarService.deleteCar(carAction.car.id);
+        CloseClickHandler();
+
+        setCars(cars.filter((car) => car.id !== carAction.car.id));
     }
 
     return(
@@ -62,6 +70,7 @@ export const CarsSection = (props) => {
                 <CarDelete
                     car={carAction.car}
                     oncloseClick={CloseClickHandler}
+                    onDeleteClick={carDeleteHandler}
                 />
             }
 

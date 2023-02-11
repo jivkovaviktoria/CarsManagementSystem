@@ -1,6 +1,7 @@
 export const CarDelete = ({
     car,
-    oncloseClick
+    oncloseClick,
+    onDeleteClick
     }) => {
 
     return (
@@ -21,7 +22,7 @@ export const CarDelete = ({
                 </header>
                 <div className="actions">
                     <div id="form-actions">
-                        <button id="action-save" className="btn" type="submit">Delete</button>
+                        <button id="action-save" className="btn" type="submit" onClick={onDeleteClick}>Delete</button>
                         <button id="action-cancel" className="btn" type="button" onClick={oncloseClick}>
                             Cancel
                         </button>

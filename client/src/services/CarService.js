@@ -21,6 +21,10 @@ export const create = async (car) => {
 
     const result = await response.json();
 
-    console.log(result);
     return result;
 };
+
+export const deleteCar = async (id) => {
+    const response = await fetch(`${baseUrl}/${id}`, {
+        method: 'DELETE'});
+}
