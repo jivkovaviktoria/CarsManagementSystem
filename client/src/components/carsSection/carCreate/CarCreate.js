@@ -22,7 +22,7 @@ export const CarCreate = ({
                             <div className="form-group">
                                 <label htmlFor="firstName">Brand</label>
                                 <div className="input-wrapper">
-                                    <span><i className="fa-solid fa-user"></i></span>
+                                    <span><i className="fa-solid fa-car"></i></span>
                                     <input id="firstName" name="firstName" type="text" />
                                 </div>
                                 <p className="form-error">
@@ -32,7 +32,7 @@ export const CarCreate = ({
                             <div className="form-group">
                                 <label htmlFor="lastName">Model</label>
                                 <div className="input-wrapper">
-                                    <span><i className="fa-solid fa-user"></i></span>
+                                    <span><i className="fa-solid fa-car"></i></span>
                                     <input id="lastName" name="lastName" type="text" />
                                 </div>
                                 <p className="form-error">
@@ -46,7 +46,7 @@ export const CarCreate = ({
                                 <div className="form-group">
                                     <label htmlFor="email">Color</label>
                                     <div className="input-wrapper">
-                                        <span><i className="fa-solid fa-envelope"></i></span>
+                                        <span><i className="fa-solid fa-paint-brush"></i></span>
                                         <input id="email" name="email" type="text" />
                                     </div>
                                     <p className="form-error">Year</p>
@@ -56,7 +56,7 @@ export const CarCreate = ({
                                 <div className="form-group">
                                     <label htmlFor="email">Year</label>
                                     <div className="input-wrapper">
-                                        <span><i className="fa-solid fa-envelope"></i></span>
+                                        <span><i className="fa-solid fa-calendar-o"></i></span>
                                         <input id="email" name="email" type="text" />
                                     </div>
                                     <p className="form-error">Year</p>
