@@ -50,6 +50,21 @@ export const CarsSection = (props) => {
         setCars(cars.filter((car) => car.id !== carAction.car.id));
     }
 
+    const carEditHandler = (e) => {
+        e.preventDefault();
+
+        const data = new FormData(e.target);
+        const newCar = Object.fromEntries(data);
+
+        let copy = cars.filter((car) => car.id !== carAction.car.id);
+
+        CarService.editCar(carAction.car.id, newCar)
+            .then(() => {
+                CloseClickHandler();
+                setCars(state => [...copy, newCar]);
+            });
+    };
+
     return(
         <>
             {carAction.action === carActions.Info &&
@@ -63,6 +78,7 @@ export const CarsSection = (props) => {
                 <CarEdit
                     car={carAction.car}
                     onCloseClick={CloseClickHandler}
+                    onEditClick = {carEditHandler}
                 />
             }
 

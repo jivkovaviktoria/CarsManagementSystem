@@ -5,8 +5,8 @@ export const getAll = async () => {
     return await response.json();
 };
 
-export const getSingle = async (carId) => {
-    const response = await fetch(`${baseUrl}/${carId}`);
+export const getSingle = async (id) => {
+    const response = await fetch(`${baseUrl}/${id}`);
     return await response.json();
 };
 
@@ -27,4 +27,18 @@ export const create = async (car) => {
 export const deleteCar = async (id) => {
     const response = await fetch(`${baseUrl}/${id}`, {
         method: 'DELETE'});
+}
+
+export const editCar = async (id, newCarData) => {
+    newCarData.id = id;
+    const response = await fetch(baseUrl, {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(newCarData)
+    });
+
+    const result = await response.json();
+    return result;
 }

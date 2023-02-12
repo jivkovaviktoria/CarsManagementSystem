@@ -1,6 +1,7 @@
 export const CarEdit = ({
     car,
     onCloseClick,
+    onEditClick
     }) => {
     return (
         <div className="overlay">
@@ -18,23 +19,23 @@ export const CarEdit = ({
                         </svg>
                     </button>
                 </header>
-                <form>
+                <form onSubmit={onEditClick}>
                     <div className="form-row">
                         <div className="form-group">
-                            <label htmlFor="firstName">Brand</label>
+                            <label htmlFor="brand">Brand</label>
                             <div className="input-wrapper">
                                 <span><i className="fa-solid fa-car"></i></span>
-                                <input id="firstName" name="firstName" type="text" />
+                                <input id="brand" name="brand" type="text" defaultValue={car.brand} />
                             </div>
                             <p className="form-error">
                                 Brand should be at least 3 characters long!
                             </p>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="lastName">Model</label>
+                            <label htmlFor="model" >Model</label>
                             <div className="input-wrapper">
                                 <span><i className="fa-solid fa-car"></i></span>
-                                <input id="lastName" name="lastName" type="text" />
+                                <input id="model" name="model" type="text" defaultValue={car.model} />
                             </div>
                             <p className="form-error">
                                 Model should be at least 3 characters long!
@@ -45,20 +46,20 @@ export const CarEdit = ({
                     <div className='form-row'>
                         <div className="form-row">
                             <div className="form-group">
-                                <label htmlFor="email">Color</label>
+                                <label htmlFor="color">Color</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-paint-brush"></i></span>
-                                    <input id="email" name="email" type="text" />
+                                    <input id="color" name="color" type="text" defaultValue={car.color} />
                                 </div>
                                 <p className="form-error">Year</p>
                             </div>
                             </div>
                             <div className="form-row">
                             <div className="form-group">
-                            <label htmlFor="email">Year</label>
+                            <label htmlFor="year" >Year</label>
                             <div className="input-wrapper">
                                 <span><i className="fa-solid fa-calendar"></i></span>
-                                <input id="email" name="email" type="text" />
+                                <input id="year" name="year" type="number" defaultValue={car.year}/>
                             </div>
                             <p className="form-error">Year</p>
                         </div>
@@ -69,7 +70,7 @@ export const CarEdit = ({
                         <label htmlFor="imageUrl">Image Url</label>
                         <div className="input-wrapper">
                             <span><i className="fa-solid fa-image"></i></span>
-                            <input id="imageUrl" name="imageUrl" type="text" />
+                            <input id="imageUrl" name="imageUrl" type="text" defaultValue={car.imageUrl} />
                         </div>
                         <p className="form-error">ImageUrl is not valid!</p>
                     </div>
