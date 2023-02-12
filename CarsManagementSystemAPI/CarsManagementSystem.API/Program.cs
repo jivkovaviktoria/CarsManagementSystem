@@ -1,5 +1,5 @@
 using CarsManagementSystem.Data;
-using CarsManagementSystem.Data.CarsManagementSystem.Data.Contracts;
+using CarsManagementSystem.Data.Contracts;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

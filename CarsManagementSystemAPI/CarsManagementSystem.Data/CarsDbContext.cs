@@ -1,4 +1,4 @@
-﻿using CarsManagementSystem.Data.CarsManagementSystem.Data.Models;
+﻿using CarsManagementSystem.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarsManagementSystem.Data;

@@ -1,5 +1,4 @@
-﻿using System.Linq.Expressions;
-using CarsManagementSystem.Data.CarsManagementSystem.Data.Contracts;
+﻿using CarsManagementSystem.Data.Contracts;
 using Microsoft.EntityFrameworkCore;
 
 namespace CarsManagementSystem.Data;

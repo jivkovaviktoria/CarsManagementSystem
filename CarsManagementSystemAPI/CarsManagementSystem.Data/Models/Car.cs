@@ -1,4 +1,4 @@
-﻿namespace CarsManagementSystem.Data.CarsManagementSystem.Data.Models;
+﻿namespace CarsManagementSystem.Data.Models;
 
 public class Car : BaseEntity
 {

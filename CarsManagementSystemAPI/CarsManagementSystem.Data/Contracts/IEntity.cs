@@ -1,4 +1,4 @@
-﻿namespace CarsManagementSystem.Data.CarsManagementSystem.Data.Contracts;
+﻿namespace CarsManagementSystem.Data.Contracts;
 
 public interface IEntity
 {

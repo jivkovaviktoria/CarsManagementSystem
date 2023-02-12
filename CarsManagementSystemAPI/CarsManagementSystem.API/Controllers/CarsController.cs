@@ -1,5 +1,5 @@
 ﻿using CarsManagementSystem.Data;
-using CarsManagementSystem.Data.CarsManagementSystem.Data.Models;
+using CarsManagementSystem.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarsManagementSystem.API.Controllers;
